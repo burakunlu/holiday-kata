@@ -9,7 +9,6 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter

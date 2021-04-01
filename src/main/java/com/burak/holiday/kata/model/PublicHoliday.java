@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Accessors(chain = true)
 @Entity
-@Table(name="public_holiday")
+@Table(name = "public_holiday")
 public class PublicHoliday {
 
     @Id
@@ -34,12 +34,6 @@ public class PublicHoliday {
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "country_code", referencedColumnName = "country_code")
     private CountryInfo countryCode;
-
-    /*
-    @OneToOne(mappedBy = "publicHoliday", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "country_code")
-    private CountryInfo countryCode;
-    */
 
     @Column(name = "fixed")
     private boolean fixed;

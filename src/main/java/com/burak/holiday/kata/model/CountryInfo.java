@@ -4,18 +4,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Accessors(chain = true)
 @Entity
-@Table(name="country_info")
+@Table(name = "country_info")
 public class CountryInfo {
 
     @Id
@@ -30,11 +27,6 @@ public class CountryInfo {
 
     @Column(name = "region")
     private String region;
-
-    /*
-    @OneToOne(mappedBy = "countryCode")
-    private PublicHoliday publicHoliday;
-    */
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "public_holiday")

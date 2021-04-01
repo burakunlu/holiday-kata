@@ -1,15 +1,33 @@
 package com.burak.holiday.kata.model;
 
+import java.util.Locale;
+
 public enum PublicHolidayType {
-    PUBLIC("Public"), BANK("Bank"), SCHOOL("School"), AUTHORITIES("Authorities"), OPTIONAL("Optional"), OBSERVANCE("Observance");
+    PUBLIC, BANK, SCHOOL, AUTHORITIES, OPTIONAL, OBSERVANCE, UNKNOWN;
 
-    private final String publicHolidayType;
-
-    PublicHolidayType(String publicHolidayType) {
-        this.publicHolidayType = publicHolidayType;
+    /**
+     * Retrieve enum type for given string input
+     * By default assign UNKNOWN
+     * @param type
+     * @return
+     */
+    public static PublicHolidayType fromString(String type) {
+        try {
+            return PublicHolidayType.valueOf(type.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            return UNKNOWN;
+        }
     }
 
-    public String getPublicHolidayType() {
-        return publicHolidayType;
+    /**
+     * Override default toString() function to get string value in different format
+     * Only first letter is upper case
+     * @return String
+     */
+    @Override
+    public String toString() {
+        String name = name().toLowerCase(Locale.ROOT);
+        name = name.substring(0, 1).toUpperCase() + name.substring(1);
+        return name;
     }
 }

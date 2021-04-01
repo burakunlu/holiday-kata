@@ -23,10 +23,10 @@ public class PublicHolidayServiceImp implements PublicHolidayService {
     CountryInfoRepository countryInfoRepository;
 
     @Override
-    public List<PublicHolidayDto> findByLaunchYearAndCountryCode(int launchYear, String countryCode) throws NotFoundException {
+    public List<PublicHolidayDto> findByYearAndCountryCode(int year, String countryCode) throws NotFoundException {
         CountryInfo countryInfo = requireExistCountryInfo(countryCode);
 
-        List<PublicHolidayDto> publicHolidays = publicHolidayRepository.findByLaunchYearAndCountryCode(launchYear, countryInfo)
+        List<PublicHolidayDto> publicHolidays = publicHolidayRepository.findByYearAndCountryCode(year, countryInfo)
                 .stream()
                 .map(PublicHolidayMapper::toPublicHolidayDto)
                 .collect(Collectors.toList());

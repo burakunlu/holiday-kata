@@ -22,7 +22,6 @@ public class Constraints {
 
     /**
      * Validates if the state is true or else throws {@link ValidationException}.
-     *
      */
     public static void checkThrows(boolean state, String message) throws ValidationException {
         if (!state) {

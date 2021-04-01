@@ -6,6 +6,5 @@ import com.burak.holiday.kata.exception.NotFoundException;
 import java.util.List;
 
 public interface PublicHolidayService {
-
-    List<PublicHolidayDto> findByLaunchYearAndCountryCode(int launchYear, String countryCode) throws NotFoundException;
+    List<PublicHolidayDto> findByYearAndCountryCode(int year, String countryCode) throws NotFoundException;
 }
