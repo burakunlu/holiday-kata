@@ -19,8 +19,6 @@ import java.util.Set;
 public class CountryInfo {
 
     @Id
-    @GeneratedValue(generator="country-code")
-    @GenericGenerator(name="country-code", strategy = "uuid")
     @Column(name = "country_code")
     private String countryCode;
 
@@ -33,7 +31,13 @@ public class CountryInfo {
     @Column(name = "region")
     private String region;
 
+    /*
     @OneToOne(mappedBy = "countryCode")
+    private PublicHoliday publicHoliday;
+    */
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "public_holiday")
     private PublicHoliday publicHoliday;
 
 }

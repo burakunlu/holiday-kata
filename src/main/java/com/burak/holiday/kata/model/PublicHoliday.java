@@ -31,9 +31,15 @@ public class PublicHoliday {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "country_code", referencedColumnName = "country_code")
     private CountryInfo countryCode;
+
+    /*
+    @OneToOne(mappedBy = "publicHoliday", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "country_code")
+    private CountryInfo countryCode;
+    */
 
     @Column(name = "fixed")
     private boolean fixed;
