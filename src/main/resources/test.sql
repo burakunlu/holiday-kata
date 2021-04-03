@@ -1,0 +1,1 @@
+insert into country_info (common_name, official_name, region, country_code) values ('common', 'official', 'region', 'TT')

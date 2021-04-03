@@ -10,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Date;
+import java.util.*;
 
 @SpringBootApplication
 public class HolidayKataApplication {
@@ -27,23 +27,21 @@ public class HolidayKataApplication {
                     .setCountryCode("DE")
                     .setCommonName("common name")
                     .setOfficialName("official name")
-                    .setRegion("region")
-                    .setPublicHoliday(null);
+                    .setRegion("region");
 
-            CountryInfo countryInfoSavedDE = countryInfoRepository.save(countryInfoDE);
+            // CountryInfo countryInfoSavedDE = countryInfoRepository.save(countryInfoDE);
 
             CountryInfo countryInfoFR = new CountryInfo()
                     .setCountryCode("FR")
                     .setCommonName("France")
                     .setOfficialName("France ")
-                    .setRegion("region")
-                    .setPublicHoliday(null);
+                    .setRegion("region");
 
             CountryInfo countryInfoSavedFR = countryInfoRepository.save(countryInfoFR);
 
             PublicHoliday publicHoliday = new PublicHoliday()
                     .setCounties("counties")
-                    .setCountryCode(countryInfoSavedDE)
+                    .setCountryCode(countryInfoDE)
                     .setDate(new Date())
                     .setFixed(false)
                     .setGlobal(false)
@@ -52,10 +50,38 @@ public class HolidayKataApplication {
                     .setName("name")
                     .setType(PublicHolidayType.PUBLIC.toString());
 
+
             PublicHoliday publicHolidaySaved = publicHolidayRepository.save(publicHoliday);
 
-            countryInfoSavedDE.setPublicHoliday(publicHolidaySaved);
+
+            /*
+            PublicHoliday publicHolidayDE = new PublicHoliday()
+                    .setCounties("counties")
+                    .setCountryCode(countryInfoDE)
+                    .setDate(new Date())
+                    .setFixed(false)
+                    .setGlobal(false)
+                    .setLaunchYear(1900)
+                    .setLocalName("local name")
+                    .setName("name")
+                    .setType(PublicHolidayType.PUBLIC.toString());
+
+
+            PublicHoliday publicHolidayDESaved = publicHolidayRepository.save(publicHolidayDE);
+            */
+
+
+
+            /*
+            List<PublicHoliday> publicHolidays = new ArrayList<>();
+            publicHolidays.add(publicHolidaySaved);
+            countryInfoSavedDE.getPublicHolidays().add(publicHolidaySaved);
+            countryInfoSavedDE.setCommonName("new common name");
             countryInfoRepository.save(countryInfoSavedDE);
+            */
+
+
+            Optional<CountryInfo> ci = countryInfoRepository.findById("DE");
         };
     }
 

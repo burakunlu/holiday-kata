@@ -1,0 +1,2 @@
+insert into country_info (common_name, official_name, region, country_code) values ('common', 'official', 'region', 'CC')
+insert into public_holiday (id, counties, country_code, date, fixed, global, launch_year, local_name, name, type) values (null, 'counties', 'CC', '2021-07-15', false, false, 2021, 'local name', 'name', 'type')

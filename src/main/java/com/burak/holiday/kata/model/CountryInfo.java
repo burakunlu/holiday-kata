@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,20 +17,19 @@ import javax.persistence.*;
 public class CountryInfo {
 
     @Id
-    @Column(name = "country_code")
+    @Column(name="country_code")
     private String countryCode;
 
-    @Column(name = "common_name")
+    @Column
     private String commonName;
 
-    @Column(name = "official_name")
+    @Column
     private String officialName;
 
-    @Column(name = "region")
+    @Column
     private String region;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "public_holiday")
-    private PublicHoliday publicHoliday;
+    @OneToMany(mappedBy="countryCode", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<PublicHoliday> publicHolidays;
 
 }

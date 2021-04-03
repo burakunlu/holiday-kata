@@ -21,32 +21,32 @@ public class PublicHoliday {
     @Column(name = "id")
     Long id;
 
-    @Column(name = "date")
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @Column(name = "local_name")
+    @Column
     private String localName;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @OneToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "country_code", referencedColumnName = "country_code")
     private CountryInfo countryCode;
 
-    @Column(name = "fixed")
+    @Column(nullable = false)
     private boolean fixed;
 
-    @Column(name = "global")
+    @Column(nullable = false)
     private boolean global;
 
-    @Column(name = "counties")
+    @Column(nullable = false)
     private String counties;
 
-    @Column(name = "launch_year")
+    @Column
     private int launchYear;
 
-    @Column(name = "type")
+    @Column(nullable = false)
     private String type;
 }
