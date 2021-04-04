@@ -11,7 +11,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 // import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest(classes = HolidayKataApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
 @AutoConfigureMockMvc
 class PublicHolidayControllerIntegrationTest {
 
@@ -27,7 +27,7 @@ class PublicHolidayControllerIntegrationTest {
 
     @Test
     public void shouldReturnNotFound_WhenCountryCodeIsNotFound() throws Exception {
-        mockMvc.perform(get("/api/v2/public-holidays/{year}/{country-code}",2021, "TR"))
+        mockMvc.perform(get("/api/v2/public-holidays/{year}/{country-code}",2021, "FR"))
                 .andExpect(status().isNotFound());
     }
 

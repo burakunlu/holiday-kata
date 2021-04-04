@@ -6,7 +6,9 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -41,8 +43,9 @@ public class PublicHoliday {
     @Column(nullable = false)
     private boolean global;
 
-    @Column(nullable = false)
-    private String counties;
+    @Column
+    @ElementCollection
+    private List<String> counties = new ArrayList<>();
 
     @Column
     private int launchYear;

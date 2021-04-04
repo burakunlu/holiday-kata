@@ -8,7 +8,9 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -31,7 +33,7 @@ public class PublicHolidayDto {
 
     private boolean global;
 
-    private String countries;
+    private List<String> counties = new ArrayList<>();
 
     private int launchYear;
 

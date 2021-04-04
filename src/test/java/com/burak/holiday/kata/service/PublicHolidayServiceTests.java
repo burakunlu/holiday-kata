@@ -11,10 +11,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.jdbc.Sql;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +28,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * DataJpaTest
  */
 @SpringBootTest
+@AutoConfigureMockMvc
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PublicHolidayServiceTests {
 
@@ -43,7 +47,7 @@ public class PublicHolidayServiceTests {
     // @Sql({"/test.sql"})
     public void shouldAddPublicHoliday() {
         PublicHoliday publicHoliday = new PublicHoliday()
-                .setCounties("counties")
+                .setCounties(new ArrayList<>(Arrays.asList("DE", "BE")))
                 .setCountryCode(new CountryInfo().setCountryCode("CC"))
                 .setDate(new Date())
                 .setFixed(false)
@@ -61,7 +65,7 @@ public class PublicHolidayServiceTests {
     @Test
     public void shouldThrowError_WhenNonNullFieldIsNull() {
         PublicHoliday publicHoliday = new PublicHoliday()
-                .setCounties("counties")
+                .setCounties(new ArrayList<>(Arrays.asList("DE", "BE")))
                 .setCountryCode(new CountryInfo().setCountryCode("DE"))
                 .setDate(null)
                 .setFixed(false)
@@ -79,7 +83,7 @@ public class PublicHolidayServiceTests {
     @Test
     public void shouldFindByYearAndCountryCode() throws NotFoundException {
         PublicHoliday publicHoliday = new PublicHoliday()
-                .setCounties("counties")
+                .setCounties(new ArrayList<>(Arrays.asList("DE", "BE")))
                 .setCountryCode(new CountryInfo().setCountryCode("DE"))
                 .setDate(new Date())
                 .setFixed(false)

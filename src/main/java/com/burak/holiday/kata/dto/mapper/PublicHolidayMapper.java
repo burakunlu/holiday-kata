@@ -9,6 +9,7 @@ public class PublicHolidayMapper {
     public static PublicHolidayDto toPublicHolidayDto(PublicHoliday publicHoliday) {
         return new PublicHolidayDto()
                 .setCountryCode(publicHoliday.getCountryCode().getCountryCode())
+                .setCounties(publicHoliday.getCounties())
                 .setDate(publicHoliday.getDate())
                 .setFixed(publicHoliday.isFixed())
                 .setGlobal(publicHoliday.isGlobal())
