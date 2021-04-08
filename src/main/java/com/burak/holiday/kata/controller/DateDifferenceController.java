@@ -1,4 +1,4 @@
-package com.burak.holiday.kata.controller.v2.api;
+package com.burak.holiday.kata.controller;
 
 import com.burak.holiday.kata.exception.ValidationException;
 import com.burak.holiday.kata.service.DateDifferenceService;

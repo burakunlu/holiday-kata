@@ -2,9 +2,11 @@ package com.burak.holiday.kata.dto.mapper;
 
 import com.burak.holiday.kata.dto.model.PublicHolidayDto;
 import com.burak.holiday.kata.model.PublicHoliday;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@NoArgsConstructor
 public class PublicHolidayMapper {
     public static PublicHolidayDto toPublicHolidayDto(PublicHoliday publicHoliday) {
         return new PublicHolidayDto()

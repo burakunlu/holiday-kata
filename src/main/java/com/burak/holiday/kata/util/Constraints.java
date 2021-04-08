@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Constraints {
 
-
     /**
      * Validates if the given object is not null, throws {@link ValidationException} with {@code exceptionMessage} if {@code givenObject} is null
      *

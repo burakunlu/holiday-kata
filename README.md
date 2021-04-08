@@ -19,3 +19,39 @@ Please implement a working prototype. We don't care if the dates are real holida
 # Part 2 - DateDiff
 
 We need an Service with an Endpoint that that accepts two dates with timezones in the following format: `CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]` and returns the difference between those two dates in hours. You can either add it to the Holiday Service or implement it as a standalone version.
+
+
+# Part 3 - My Solution
+
+The services of this application performs retrieving Public Holidays and calculating time difference between given two dates.
+
+## Requirements
+
+For building and running the application you need:
+
+- Java 11 
+- Maven 3
+
+## Configurations
+Database configurations and time format can be found in the application.properties file under the resources folder.
+
+## Building the application
+``` 
+mvn clean install
+``` 
+
+## Running the application locally
+One way is to execute the main method in the com.burak.holiday.kata.HlidayKataApplication class from your IDE. Alternatively you can use the Spring Boot Maven plugin like so:
+``` 
+mvn spring-boot:run
+``` 
+
+This will start the application with embedded H2 database and [Swagger UI](http://localhost:8080/swagger-ui/). It will be listening 8080 port.
+
+
+The application will be started with initial data which can be used for testing endpoints. 
+For public holiday endpoint you can use:
+``` 
+year: 2021, country code: DE
+year: 2021, country code: TR
+``` 

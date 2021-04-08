@@ -1,1 +1,2 @@
-insert into country_info (common_name, official_name, region, country_code) values ('common', 'official', 'region', 'TT')
+insert into country_info (common_name, official_name, region, country_code) values ('Spain', 'Kingdom of Spain Reino de España', 'Europe', 'ES')
+insert into country_info (common_name, official_name, region, country_code) values ('Netherlands ', 'Kingdom of the Netherlands', 'Europe', 'NL')

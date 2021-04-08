@@ -33,7 +33,7 @@ public class PublicHoliday {
     @Column
     private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_code", referencedColumnName = "country_code")
     private CountryInfo countryCode;
 

@@ -26,11 +26,10 @@ public class PublicHolidayServiceImp implements PublicHolidayService {
     public List<PublicHolidayDto> findByYearAndCountryCode(int year, String countryCode) throws NotFoundException {
         CountryInfo countryInfo = requireExistCountryInfo(countryCode);
 
-        List<PublicHolidayDto> publicHolidays = publicHolidayRepository.findByYearAndCountryCode(year, countryInfo)
+        return publicHolidayRepository.findByYearAndCountryCode(year, countryInfo)
                 .stream()
                 .map(PublicHolidayMapper::toPublicHolidayDto)
                 .collect(Collectors.toList());
-        return publicHolidays;
     }
 
     private CountryInfo requireExistCountryInfo(String countryCode) throws NotFoundException {

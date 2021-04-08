@@ -10,7 +10,10 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
- * in time format hh:mm occurs twice. last one has priority.
+ * Service that calculates time difference between given dates, considering the different time zones
+ * In case the time format contains hh:mm more than once, the last one will have the priority.
+ *
+ * @author Burak Unlu
  */
 @Component
 public class DateDifferenceServiceImp implements DateDifferenceService {
@@ -27,7 +30,6 @@ public class DateDifferenceServiceImp implements DateDifferenceService {
     public long dateDifference(String start, String end) throws ValidationException {
         Date startParsed = parseDate(start);
         Date endParsed = parseDate(end);
-        startParsed.getTime();
         long diff = Math.abs(startParsed.getTime() - endParsed.getTime());
         return TimeUnit.HOURS.convert(diff, TimeUnit.MILLISECONDS);
     }
